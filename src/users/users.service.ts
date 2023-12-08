@@ -1,3 +1,4 @@
+import { IsEmail } from 'class-validator';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -12,4 +13,13 @@ export class UsersService {
 
     return this.repo.save(user);
   }
+
+  findOne(id: number) {
+    return this.repo.findOne(id);
+  }
+  find(email: string) {
+    return this.repo.find({ email: email });
+  }
+  update() {}
+  remove() {}
 }
